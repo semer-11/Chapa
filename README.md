@@ -1,6 +1,5 @@
-**Laravel Chapa SDK  **
+<p  style="display:flex; margin-left:20%">
+  <img src="https://ethiopianlogos.com/logos/chapa/chapa.svg" width="200" style="margin-right:30px" />
+  <img src="https://www.svgrepo.com/show/353985/laravel.svg" width="100" /> 
 
-<br><br>
-[![](https://ethiopianlogos.com/logos/chapa/chapa.svg)](https://chapa.co)
-
-![](https://cdn.worldvectorlogo.com/logos/laravel-2.svg )
+</p>
