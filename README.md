@@ -33,21 +33,25 @@ Avaliable Methods
 initializePayment(array $details, bool $will_redirect = FALSE, string $custom_ref = NULL, string $ref_prefix = NULL)
 `
 
-$details details you need to initialize in chapa's API.This array should have to be associative array which will help you in case you forget one of the required fields before makeing the request it will throw an error.You don't need to pass authorization tokens!
-$will_redirect if set to true it will redirect customer to checkout_url automatically if the payment initialization was successful.
-$custom_ref if not NULL initializePayment will use $custom_ref  for chapa\`s   `tx_ref` field.
-if $custom_ref is not defined and $ref_prefix is defined initializePayment will generate unique tx_ref with prefix $ref_prefix.
-**Note:-**initializePayment will return Chapa\`s response if `$will_redirect` is not set to true
+$details details you need to initialize in chapa's API.This array should have to be associative array which will help you in case you forget one of the required fields before making the request it will throw an error when of the required fields are null.
+**You don't need to pass authorization tokens!**
+$will_redirect if set to true it will redirect customer to the checkout_url automatically if the payment initialization was successful.
+
+$custom_ref if not NULL `initializePayment` will use $custom_ref  for chapa\`s   `tx_ref` field.
+
+if $custom_ref is not defined and $ref_prefix is defined `initializePayment` will generate unique tx_ref with prefix `$ref_prefix`.
+**Note:-** `initializePayment` will return Chapa\`s response/object if `$will_redirect` is not set to true
 
 `verifyPayment(string $tx_ref, bool $only_status = FALSE)`
 
 This method will verify payment reuqire `$tx_ref` transaction reference to the transaction need to be verified.One best feature of this package is it will store all intialiased payment. So you don\`t need to worry about tx_ref loses.If `$only_status` set to true it only return the status of the transaction **TRUE** if the transaction status is **sucess** false otherwise.
+
 `verifyLatestTx(bool $only_status = FALSE)`
 sometimes you might only need to verify the latest transaction. `$only_status` optional variable same usage as it is in the above method.
 
 `verifyTxById(int $id, bool $only_status = FALSE)`
 
-and sometimes you hands might get tired writting long transaction ref when you do so the only thing you need is passing databse id of your transaction. `$only_status` again with same purpose.
+sometimes your hands might get tired of writting long transaction ref when you do so the only thing you need is passing databse id of your transaction. `$only_status` optional is set to true again same purpose.
 
 
 
