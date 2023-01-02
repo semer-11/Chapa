@@ -18,37 +18,15 @@ First thing is first before you start using this package you need to have Chapa 
 >make things as felxible as they could be.
 
 Once you get your API key add your secret key inside .env file or You can pass it directely to the contructor.if you are using the former method which is accessing via .env file the variable should have name `CHAPA_API_KEY` .
-
-<h2 style="text-align:center;">Available methods</h2>
-`
-<p float="middle" style="display:flex; margin-left:20%">
-  <img src="https://ethiopianlogos.com/logos/chapa/chapa.svg" width="200" style="margin-right:30px" />
-  <img src="https://www.svgrepo.com/show/353985/laravel.svg" width="50" /> 
-
-</p>
-
-
-<h1 style="text-align:center; color:green;">
-Chapa SDK for Laravel
-</h1>
- Chapa is one of the payment gateways in Ethiopia. This laravel SDK will help you integrate chapa with your next laravel project.You can require the package via `composer require semernur/chapa`. This package has functionalities that will help initialize payment,verify payment at the momment and other functionalities will be added very soon .
  After successfull installation you need to run `php artisan migrate` in order to setup database table for the package.
  if you would like to interact with the packages database run `php artisan vendor:publish --tag=databse`
   To interact with the packages model run `php artisan vendor:publish --tag=model`
  To interact with the packages Controller run `php artisan vendor:publish --tag=controller`
- <h1 style="text-align:center; color:green;">
-Docs
-</h1>
-First thing is first before you start using this package you need to have Chapa API key which you cand get one from  [Here](https://dashboard.chapa.co/ ).
 
->make things as felxible as they could be.
 
-Once you get your API key add your secret key inside .env file or You can pass it directely to the contructor.if you are using the former method which is accessing via .env file the variable should have name `CHAPA_API_KEY` .
-
-<h2 style="text-align:center;">Available methods</h2>
-`
+```php
 initializePayment(array $details, bool $will_redirect = FALSE, string $custom_ref = NULL, string $ref_prefix = NULL)
-`
+```
 
 $details details you need to initialize in chapa's API.This array should have to be associative array which will help you in case you forget one of the required fields before makeing the request it will throw an error.You don't need to pass authorization tokens!
 $will_redirect if set to true it will redirect customer to checkout_url automatically if the payment initialization was successful.
@@ -61,5 +39,5 @@ This method will verify payment reuqire `$tx_ref` transaction reference to the t
 `3. verifyLatestTx(bool $only_status = FALSE)` sometimes you might only need to verify the latest transaction. `$only_status` optional variable same usage as it is in the above method.
 `4. verifyTxById(int $id, bool $only_status = FALSE)` and sometimes you hands might get tired writting long transaction ref when you do so the only thing you need is passing databse id of your transaction. `$only_status` again with same purpose.
 
-any issues or contributions are most welcomed.
+<h1 style="text-align:center">Enjoy!</h1>
 
