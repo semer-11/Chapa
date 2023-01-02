@@ -3,13 +3,11 @@
 namespace Chapa\Controller;
 
 use App\Http\Controllers\Controller;
-use Chapa\Controller\ChapaController as ControllerChapaController;
-use Chapa\Model\Chapa;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Http;
+use Chapa\Controller\ChapaController;
 
 
-class ChapaController extends Controller
+
+class Test extends Controller
 {
     public $chapa;
 
@@ -18,7 +16,7 @@ class ChapaController extends Controller
      */
     public function __construct()
     {
-        $this->chapa = new ControllerChapaController(env('CHAPA_API_KEY'));
+        $this->chapa = new ChapaController(env('CHAPA_API_KEY'));
     }
 
     public function initialize()

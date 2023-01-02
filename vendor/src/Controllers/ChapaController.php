@@ -33,18 +33,6 @@ class ChapaController extends Controller
         $this->api_key = "Bearer " . env('CHAPA_API_KEY');
     }
 
-    protected function generateReference(string $ref_prefix = NULL, bool $short = true): string
-    {
-        //the purpose of $short is to specify the length of the ref
-        // read more about uniqid
-        // https://www.php.net/manual/en/function.uniqid.php
-        if ($ref_prefix) {
-            $this->tx_ref = $ref_prefix . "_" . uniqid(time(), $short);
-            return $this->tx_ref;
-        }
-        $this->tx_ref = uniqid(time(), $short);
-        return $this->tx_ref;
-    }
 
     public function initializePayment(array $details, bool $will_redirect = FALSE, string $custom_ref = NULL, string $ref_prefix = NULL)
     {
@@ -160,6 +148,18 @@ class ChapaController extends Controller
         //optimal and recommended way
         //Js's method
         echo '<script>window.open("' . $url . '","_blank")</script>';
+    }
+    protected function generateReference(string $ref_prefix = NULL, bool $short = true): string
+    {
+        //the purpose of $short is to specify the length of the ref
+        // read more about uniqid
+        // https://www.php.net/manual/en/function.uniqid.php
+        if ($ref_prefix) {
+            $this->tx_ref = $ref_prefix . "_" . uniqid(time(), $short);
+            return $this->tx_ref;
+        }
+        $this->tx_ref = uniqid(time(), $short);
+        return $this->tx_ref;
     }
 
     public function index()
