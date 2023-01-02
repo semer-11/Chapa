@@ -151,7 +151,7 @@ class ChapaController extends Controller
         }
     }
 
-    public function redirectForCheckout(string $url)
+    protected function redirectForCheckout(string $url)
     {
         //laravel's way to redirect
         //uncomment the below line
