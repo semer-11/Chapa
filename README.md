@@ -14,7 +14,8 @@ Chapa SDK for Laravel
  <h1 style="text-align:center; color:green;">
 Docs
 </h1>
-First thing is first before you start using this package you need to have Chapa API key which you cand get one from here [Here](https://dashboard.chapa.co/ "Here").
+First thing is first before you start using this package you need to have Chapa API key which you can get one from 
+ [Chapa](https://dashboard.chapa.co/)
 
 >make things as felxible as they could be.
 
@@ -39,14 +40,16 @@ if $custom_ref is not defined and $ref_prefix is defined initializePayment will 
 **Note:-**initializePayment will return Chapa\`s response if `$will_redirect` is not set to true
 
 `verifyPayment(string $tx_ref, bool $only_status = FALSE)`
+
 This method will verify payment reuqire `$tx_ref` transaction reference to the transaction need to be verified.One best feature of this package is it will store all intialiased payment. So you don\`t need to worry about tx_ref loses.If `$only_status` set to true it only return the status of the transaction **TRUE** if the transaction status is **sucess** false otherwise.
 `verifyLatestTx(bool $only_status = FALSE)`
 sometimes you might only need to verify the latest transaction. `$only_status` optional variable same usage as it is in the above method.
 
 `verifyTxById(int $id, bool $only_status = FALSE)`
+
 and sometimes you hands might get tired writting long transaction ref when you do so the only thing you need is passing databse id of your transaction. `$only_status` again with same purpose.
 
-any issues or contributions are 
+
 
 
 <h1 style="text-align:center">Enjoy!</h1>
