@@ -16,18 +16,24 @@ class ChapaController extends Controller
     protected $tx_ref;
 
 
-    public function __construct()
+    public function __construct($api_key = NULL)
     {
-        $this->api_key = "Bearer " . env('CHAPA_API_KEY');
         //Chapa might will change their url 
         //so U don't have to refactor the whole code
         //base_url will be the current chapa url by default
         //incase their is change in chapa url
         //the only thing you need is define CHAPA_URL=url.to.chapa
         $this->base_url = env("CHAPA_URL", "https://api.chapa.co/v1");
+
+        if ($api_key) {
+
+            $this->api_key = "Bearer " . $api_key;
+            return;
+        }
+        $this->api_key = "Bearer " . env('CHAPA_API_KEY');
     }
 
-    public function generateReference(string $ref_prefix = NULL, bool $short = true): string
+    protected function generateReference(string $ref_prefix = NULL, bool $short = true): string
     {
         //the purpose of $short is to specify the length of the ref
         // read more about uniqid
@@ -81,7 +87,7 @@ class ChapaController extends Controller
         }
     }
 
-    public function verifyPayment(string $tx_ref, bool $only_status)
+    public function verifyPayment(string $tx_ref, bool $only_status = FALSE)
     {
         try {
             $response = Http::withHeaders([
