@@ -6,7 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Chapa\\Model\\' => array($baseDir . '/src/Models'),
-    'Chapa\\Controller\\' => array($baseDir . '/src/Controllers'),
-    'Chapa\\Chapa\\' => array($baseDir . '/src'),
+    'Chapa\\Model\\' => array($vendorDir . '/src/Models'),
+    'Chapa\\Controller\\' => array($vendorDir . '/src/Controllers'),
+    'Chapa\\Chapa\\' => array($vendorDir . '/src'),
 );
