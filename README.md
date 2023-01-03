@@ -24,6 +24,17 @@ Once you get your API key add your secret key inside .env file or You can pass i
  if you would like to interact with the packages database run `php artisan vendor:publish --tag=databse`
   To interact with the packages model run `php artisan vendor:publish --tag=model`
  To interact with the packages Controller run `php artisan vendor:publish --tag=controller`.
+
+Before you get start there are routes you might need to check out.
+Here are the list of routes to test things out.This routes only work on when `APP_DEBUG` is true
+
+`your.domain/chapa/initialize`
+
+`your.domain/chapa/verify/{ref}`
+
+`your.domain/chapa/verifyLatest`
+
+`your.domain/chapa/verifyTxById/{id}`
  
 <h1 style="text-align:center; color:green;">
 Avaliable Methods
