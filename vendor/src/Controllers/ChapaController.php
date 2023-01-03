@@ -161,23 +161,4 @@ class ChapaController extends Controller
         $this->tx_ref = uniqid(time(), $short);
         return $this->tx_ref;
     }
-
-    public function index()
-    {
-
-        /*  $this->initializePayment([
-            'amount' => '100',
-            'currency' => 'ETB',
-            'email' => 'abebe@bikila.com',
-            'first_name' => 'Abebe',
-            'last_name' => 'Bikila',
-            'tx_ref' => 'tx-myecommerce12345',
-            'callback_url' => 'https://chapa.co',
-            'title' => 'I love e-commerce',
-            'description' => 'It is time to pay'
-        ], TRUE); */
-
-        echo $this->verifyPayment("123456vbnm", TRUE);
-        // echo $this->verifyTxById(4);
-    }
 }
