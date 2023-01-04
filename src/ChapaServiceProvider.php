@@ -22,6 +22,10 @@ class ChapaServiceProvider extends ServiceProvider
             'model'
         );
 
+        $this->publishes([
+            __DIR__ . '/config/chapa.php' => config_path('chapa.php'),
+        ]);
+
         $this->publishes(
             [
                 __DIR__ . './controllers/' => app_path('Http/Controllers/Chapa')
