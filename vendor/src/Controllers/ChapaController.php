@@ -119,11 +119,11 @@ class ChapaController extends Controller
         try {
             if ($tx) {
 
-                $latest = Chapa::latest()->first();
+
                 $response = Http::withHeaders([
                     'Authorization' => "Bearer " . $this->api_key
                 ])->get(
-                    $this->base_url . '/transaction/verify/' . $latest->tx_ref
+                    $this->base_url . '/transaction/verify/' . $tx->tx_ref
 
                 );
                 if ($only_status) {
@@ -155,10 +155,8 @@ class ChapaController extends Controller
         // read more about uniqid
         // https://www.php.net/manual/en/function.uniqid.php
         if ($ref_prefix) {
-            $this->tx_ref = $ref_prefix . "_" . uniqid(time(), $short);
-            return $this->tx_ref;
+            return $this->tx_ref = $ref_prefix . "_" . uniqid(time(), $short);
         }
-        $this->tx_ref = uniqid(time(), $short);
-        return $this->tx_ref;
+        return $this->tx_ref = uniqid(time(), $short);
     }
 }
