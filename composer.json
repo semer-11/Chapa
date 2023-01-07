@@ -1,0 +1,32 @@
+{
+  "name": "semernur/dev",
+  "description": "Laravel package for Chapa payment gateway",
+  "type": "library",
+  "require": {
+    "php": "^7.4|^8.0",
+    "guzzlehttp/guzzle": "^7.4.5",
+    "illuminate/support": "^5.0|^6.0|^7.0|^8.0|^9.0"
+  },
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "Chapa\\Chapa\\": "vendor/src/",
+      "Chapa\\Controller\\": "vendor/src/Controllers/",
+      "Chapa\\Model\\": "vendor/src/Models/"
+    }
+  },
+  "authors": [
+    {
+      "name": "SEMREDIN NUREGBA",
+      "email": "semernur11@gmail.com"
+    }
+  ],
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Chapa\\Chapa\\ChapaServiceProvider"
+      ]
+    }
+  },
+  "minimum-stability": "dev"
+}
