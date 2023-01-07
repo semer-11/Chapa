@@ -10,9 +10,9 @@
   "license": "MIT",
   "autoload": {
     "psr-4": {
-      "Chapa\\Chapa\\": "vendor/src/",
-      "Chapa\\Controller\\": "vendor/src/Controllers/",
-      "Chapa\\Model\\": "vendor/src/Models/"
+      "Chapa\\Chapa\\": "src/",
+      "Chapa\\Controller\\": "src/Controllers/",
+      "Chapa\\Model\\": "src/Models/"
     }
   },
   "authors": [
