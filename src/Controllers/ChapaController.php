@@ -143,7 +143,7 @@ class ChapaController extends Controller
     {
         //laravel's way to redirect
         //uncomment the below line
-        echo redirect($url);
+        return redirect($url);
         ##############################################
         //optimal and recommended way
         //Js's method
