@@ -1,5 +1,5 @@
 {
-  "name": "semernur/dev",
+  "name": "semernur/chapa",
   "description": "Laravel package for Chapa payment gateway",
   "type": "library",
   "require": {
