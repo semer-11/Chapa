@@ -33,8 +33,8 @@ class ChapaController extends Controller
     public function initializePayment(array $details, bool $will_redirect = FALSE, string $custom_ref = NULL, string $ref_prefix = NULL)
     {
         //The array should have to be associative
-        echo $this->api_key;
-        /*   try {
+
+        try {
             $response = Http::withHeaders([
                 'Authorization' => $this->api_key
             ])->post(
@@ -69,7 +69,7 @@ class ChapaController extends Controller
             return $response;
         } catch (\Throwable $th) {
             return $th;
-        } */
+        }
     }
 
     public function verifyPayment(string $tx_ref, bool $only_status = FALSE)

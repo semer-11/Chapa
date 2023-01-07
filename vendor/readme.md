@@ -7,23 +7,23 @@
 <h1 style="text-align:center; color:green;">
 Chapa SDK for Laravel
 </h1>
- Chapa is one of the payment gateways in Ethiopia. This laravel SDK will help you integrate chapa with your next laravel project.You can find the package at packagist store. This package has functionalities that will help initialize payment,verify payment at the momment and other functionalities will be added very soon .
+ Chapa is one of the payment gateways in Ethiopia. This laravel SDK will help you integrate chapa with your next laravel project.You can find the package at packagist repo `composer require semernur/chapa` . This package has functionalities that will help initialize payment,verify payment at the momment and other functionalities will be added very soon .
  <h1 style="text-align:center; color:green;">
 Docs
 </h1>
 First thing is first before you start using this package you need to have Chapa API key which you can get one from 
  [Chapa](https://dashboard.chapa.co/)
 
-> make things as felxible as they could be.
+> make things as flexible as they could be.
 
-Once you get your API key add your secret key inside .env file or You can pass it directely to the contructor.if you are using the former method which is accessing via .env file the variable should have name `CHAPA_API_KEY` .
-After successfull installation you need to run `php artisan migrate` in order to setup database table for the package.
-if you would like to interact with the packages database run `php artisan vendor:publish --tag=databse`
+Once you get your API key add your secret key inside .env file or You can pass it directly to the constructor.if you are using the former method which is accessing via .env file the variable should have name `CHAPA_API_KEY` .
+After successful installation you need to run `php artisan migrate` in order to setup database table for the package.
+if you would like to interact with the packages database run `php artisan vendor:publish --tag=database`
 To interact with the packages model run `php artisan vendor:publish --tag=model`
 To interact with the packages Controller run `php artisan vendor:publish --tag=controller`.
 
 <h1 style="text-align:center; color:green;">
-Avaliable Methods
+Available Methods
 </h1>
 
 `initializePayment(array $details, bool $will_redirect = FALSE, string $custom_ref = NULL, string $ref_prefix = NULL)`
@@ -39,13 +39,13 @@ if $custom_ref is not defined and $ref_prefix is defined `initializePayment` wil
 
 `verifyPayment(string $tx_ref, bool $only_status = FALSE)`
 
-This method will verify payment reuqire `$tx_ref` transaction reference to the transaction need to be verified.One best feature of this package is it will store all intialiased payment. So you don\`t need to worry about tx_ref loses.If `$only_status` set to true it only return the status of the transaction **TRUE** if the transaction status is **sucess** false otherwise.
+This method will verify payment require `$tx_ref` transaction reference to the transaction need to be verified.One best feature of this package is it will store all initialized payment. So you don\`t need to worry about tx_ref loses.If `$only_status` set to true it only return the status of the transaction **TRUE** if the transaction status is **success** false otherwise.
 
 `verifyLatestTx(bool $only_status = FALSE)`
 sometimes you might only need to verify the latest transaction. `$only_status` optional variable same usage as it is in the above method.
 
 `verifyTxById(int $id, bool $only_status = FALSE)`
 
-sometimes your hands might get tired of writting long transaction ref when you do so the only thing you need is passing databse id of your transaction. `$only_status` optional is set to true again same purpose.
+sometimes your hands might get tired of writing long transaction ref when you do so the only thing you need is passing database id of your transaction. `$only_status` optional is set to true again same purpose.
 
 <h1 style="text-align:center">Enjoy!</h1>
