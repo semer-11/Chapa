@@ -143,11 +143,11 @@ class ChapaController extends Controller
     {
         //laravel's way to redirect
         //uncomment the below line
-        // echo redirect()->away($url);
+        echo redirect($url);
         ##############################################
         //optimal and recommended way
         //Js's method
-        echo '<script>window.open("' . $url . '","_blank")</script>';
+        // echo '<script>window.open("' . $url . '","_blank")</script>';
     }
     protected function generateReference(string $ref_prefix = NULL, bool $short = true): string
     {
