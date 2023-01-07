@@ -16,7 +16,7 @@ class ChapaController extends Controller
     protected $tx_ref;
 
 
-    public function __construct()
+    public function __construct(string $api_key = NULL)
     {
         //Chapa might will change their url 
         //so U don't have to refactor the whole code
@@ -24,9 +24,12 @@ class ChapaController extends Controller
         //incase their is change in chapa url
         //the only thing you need is define CHAPA_URL=url.to.chapa
         $this->base_url = env("CHAPA_URL", "https://api.chapa.co/v1");
+        if ($api_key) {
 
+            return $this->api_key = "Bearer " . $api_key;
+        }
 
-        $this->api_key = "Bearer " . config('chapa.CHAPA_API_KEY');
+        return $this->api_key = "Bearer " . env('CHAPA_API_KEY');
     }
 
 
