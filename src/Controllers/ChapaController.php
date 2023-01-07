@@ -142,10 +142,10 @@ class ChapaController extends Controller
     protected function redirectForCheckout(string $url)
     {
         //laravel's way to redirect
-        //uncomment the below line
+
         return redirect($url);
         ##############################################
-        //optimal and recommended way
+
         //Js's method
         // echo '<script>window.open("' . $url . '","_blank")</script>';
     }
