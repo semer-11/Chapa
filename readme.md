@@ -1,18 +1,23 @@
-<p float="middle" style="display:flex; margin-left:20%">
+<p align="center" style="display:flex; margin-left:20%">
   <img src="https://ethiopianlogos.com/logos/chapa/chapa.svg" width="200" style="margin-right:30px" />
   <img src="https://www.svgrepo.com/show/353985/laravel.svg" width="50" />
 
 </p>
 
-<h1 style="text-align:center; color:green;">
-Chapa SDK for Laravel
+<h1 align="center">
+Chapa Package for Laravel
 </h1>
- Chapa is one of the payment gateways in Ethiopia. This laravel SDK will help you integrate chapa with your next laravel project.You can find the package at packagist repo `composer require semernur/chapa` . This package has functionalities that will help initialize payment,verify payment at the momment and other functionalities will be added very soon .
- <h1 style="text-align:center; color:green;">
+ Chapa is one of the payment gateways in Ethiopia. This laravel SDK will help you integrate chapa with your next laravel project.You can find the package at packagist repo install with 
+ 
+ >composer require semernur/chapa
+ 
+ This package has functionalities that will help you to easily initialize payment,verify payment at the momment and other functionalities will be added very soon .
+ <h1 align="center">
 Docs
 </h1>
-First thing is first before you start using this package you need to have Chapa API key which you can get one from 
- [Chapa](https://dashboard.chapa.co/)
+First thing is first before you start using this package you need to have Chapa API key which you can get one from
+
+[Chapa](https://dashboard.chapa.co/)
 
 > make things as flexible as they could be.
 
@@ -22,7 +27,7 @@ if you would like to interact with the packages database run `php artisan vendor
 To interact with the packages model run `php artisan vendor:publish --tag=model`
 To interact with the packages Controller run `php artisan vendor:publish --tag=controller`.
 
-<h1 style="text-align:center; color:green;">
+<h1 align="center">
 Available Methods
 </h1>
 
@@ -48,4 +53,4 @@ sometimes you might only need to verify the latest transaction. `$only_status` o
 
 sometimes your hands might get tired of writing long transaction ref when you do so the only thing you need is passing database id of your transaction. `$only_status` optional is set to true again same purpose.
 
-<h1 style="text-align:center">Enjoy!</h1>
+<h1 align="center">Enjoy!</h1>
