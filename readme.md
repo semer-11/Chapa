@@ -15,9 +15,8 @@ Chapa Package for Laravel
  <h1 align="center">
 Docs
 </h1>
-First thing is first before you start using this package you need to have Chapa API key which you can get one from
-
-[Chapa](https://dashboard.chapa.co/)
+First thing is first before you start using this package you need to have Chapa API key which you can get one from 
+ [Chapa](https://dashboard.chapa.co/)
 
 > make things as flexible as they could be.
 
@@ -54,3 +53,5 @@ sometimes you might only need to verify the latest transaction. `$only_status` o
 sometimes your hands might get tired of writing long transaction ref when you do so the only thing you need is passing database id of your transaction. `$only_status` optional is set to true again same purpose.
 
 <h1 align="center">Enjoy!</h1>
+
+<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->

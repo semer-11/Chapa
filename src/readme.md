@@ -1,23 +1,23 @@
-<p float="middle" style="display:flex; margin-left:20%">
+<p align="center" style="display:flex; margin-left:20%">
   <img src="https://ethiopianlogos.com/logos/chapa/chapa.svg" width="200" style="margin-right:30px" />
   <img src="https://www.svgrepo.com/show/353985/laravel.svg" width="50" />
 
 </p>
 
-<h1 align="center" >
+<h1 align="center">
 Chapa Package for Laravel
 </h1>
- Chapa is one of the payment gateways in Ethiopia. This laravel SDK will help you integrate chapa with your next laravel project.You can find the package at packagist repo
+ Chapa is one of the payment gateways in Ethiopia. This laravel SDK will help you integrate chapa with your next laravel project.You can find the package at packagist repo install with 
  
- >composer require semernur/chapa.
+ >composer require semernur/chapa
  
-  This package has functionalities that will help you to easily initialize payment,verify payment at the momment and other functionalities will be added very soon .
+ This package has functionalities that will help you to easily initialize payment,verify payment at the momment and other functionalities will be added very soon .
  <h1 align="center">
 Docs
 </h1>
-First thing is first before you start using this package you need to have Chapa API key which you can get one from 
+First thing is first before you start using this package you need to have Chapa API key which you can get one from
 
- [Chapa](https://dashboard.chapa.co/)
+[Chapa](https://dashboard.chapa.co/)
 
 > make things as flexible as they could be.
 
