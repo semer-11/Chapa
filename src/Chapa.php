@@ -3,17 +3,18 @@
 namespace Semernur\Chapa;
 
 use Illuminate\Support\Facades\Http;
+use Semernur\Chapa\Exceptions\ChapaException;
 
 class Chapa
 {
-    protected $public_key;
+    protected $secret_key;
     protected $base_url;
     // we need $tx_ref because we might need to verify
     //payment
     protected $tx_ref;
 
 
-    public function __construct(string $public_key = NULL)
+    public function __construct(string $secret_key = NULL)
     {
         //Chapa might will change their url 
         //so U don't have to refactor the whole code
@@ -21,47 +22,47 @@ class Chapa
         //incase their is change in chapa url
         //the only thing you need is define CHAPA_ENDPOINT=url.to.chapa
 
-        if ($public_key) {
-            $this->public_key = "Bearer " . $public_key;
+        if ($secret_key) {
+            $this->secret_key = "Bearer " . config("chapa.CHAPA_SECRET_KEY");
         }
-        $this->public_key = "Bearer " . config("CHAPA_PUBLIC_KEY");
+        $this->secret_key = "Bearer " . config("chapa.CHAPA_SECRET_KEY");
 
-        $this->base_url = config("CHAPA_ENDPOINT");
+        $this->base_url = config("chapa.CHAPA_ENDPOINT");
     }
 
 
-    public function initializePayment(array $details)
+    public function initializePayment(array $details, $will_redirect = FALSE)
     {
-        //The array should have to be associative
 
-        try {
-            $response = Http::withHeaders([
-                'Authorization' => $this->public_key
-            ])->post(
-                $this->base_url . '/transaction/initialize',
-                $details
-            );
-            return $response;
-        } catch (\Throwable $th) {
-            return $th;
+        $response = Http::withHeaders([
+            'Authorization' => $this->secret_key
+        ])->post(
+            $this->base_url . '/transaction/initialize',
+            $details
+        );
+        if ($response->status() === 200) {
+
+            if ($will_redirect) {
+                $this->redirectForCheckout($response->object()->data->checkout_url);
+                return $response;
+            }
         }
+
+        return $response;
     }
 
     public function verifyPayment(string $tx_ref, bool $only_status = FALSE)
     {
-        try {
-            $response = Http::withHeaders([
-                'Authorization' => "Bearer " . $this->public_key
-            ])->get(
-                $this->base_url . '/transaction/verify/' . $tx_ref
-            );
-            if ($only_status) {
-                return  $response->object()->status == 'success' ? true : false;
-            }
-            return $response;
-        } catch (\Throwable $th) {
-            throw $th;
+
+        $response = Http::withHeaders([
+            'Authorization' => "Bearer " . $this->secret_key
+        ])->get(
+            $this->base_url . '/transaction/verify/' . $tx_ref
+        );
+        if ($only_status) {
+            return  $response->object()->status == 'success' ? true : false;
         }
+        return $response;
     }
 
 
@@ -70,11 +71,13 @@ class Chapa
     {
         //laravel's way to redirect
 
-        return redirect($url);
+        // return redirect($url);
         ##############################################
 
         //Js's method
-        // echo '<script>window.open("' . $url . '","_blank")</script>';
+        // Recommended way
+        //this will open the checkout url in new tab
+        echo '<script>window.open("' . $url . '","_blank")</script>';
     }
     protected function generateReference(string $ref_prefix = NULL, bool $short = true): string
     {
@@ -82,7 +85,7 @@ class Chapa
         // read more about uniqid
         // https://www.php.net/manual/en/function.uniqid.php
         if ($ref_prefix) {
-            return $this->tx_ref = $ref_prefix . "_" . uniqid(time(), $short);
+            return $this->tx_ref = uniqid("$ref_prefix _" . time(), $short);
         }
         return $this->tx_ref = uniqid(time(), $short);
     }

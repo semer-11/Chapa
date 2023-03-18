@@ -4,9 +4,7 @@ namespace Semernur\Chapa;
 
 use Illuminate\Support\Facades\Facade;
 
-/**
- * @see \Semernur\Chapa\Skeleton\SkeletonClass
- */
+
 class ChapaFacade extends Facade
 {
     /**
