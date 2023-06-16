@@ -79,7 +79,7 @@ class Chapa
         //this will open the checkout url in new tab
         echo '<script>window.open("' . $url . '","_blank")</script>';
     }
-    protected function generateReference(string $ref_prefix = NULL, bool $short = true): string
+    public function generateReference(string $ref_prefix = NULL, bool $short = true): string
     {
         //the purpose of $short is to specify the length of the ref
         // read more about uniqid
