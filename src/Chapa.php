@@ -22,11 +22,11 @@ class Chapa
         //incase their is change in chapa url
         //the only thing you need is define CHAPA_ENDPOINT=url.to.chapa
 
-        if ($secret_key) {
+       
+        $this->secret_key = "Bearer " . config("chapa.CHAPA_SECRET_KEY");
+        if ($secret_key) { //this will override the default setting
             $this->secret_key = "Bearer " . config("chapa.CHAPA_SECRET_KEY");
         }
-        $this->secret_key = "Bearer " . config("chapa.CHAPA_SECRET_KEY");
-
         $this->base_url = config("chapa.CHAPA_ENDPOINT");
     }
 
